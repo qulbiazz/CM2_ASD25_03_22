@@ -30,11 +30,11 @@ public class Main {
             switch (pilih) {
                 case 1:
                     System.out.print("Input Nama Pasien: ");
-                    String pasien = input.next();
+                    String pasien = input.nextLine();
                     System.out.print("NIK: ");
-                    String nik = input.next();
+                    String nik = input.nextLine();
                     System.out.print("Keluhan: ");
-                    String keluhan = input.next();
+                    String keluhan = input.nextLine();
                     Pasien tambah = new Pasien(pasien, nik, keluhan);
                     dll.addlastPasien(tambah);
                     break;
