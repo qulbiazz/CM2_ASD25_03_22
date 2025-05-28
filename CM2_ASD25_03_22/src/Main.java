@@ -25,6 +25,7 @@ public class Main {
             System.out.println("0. Keluar");
             System.out.print("Pilih: ");
             pilih = input.nextInt();
+            input.nextLine();
 
             switch (pilih) {
                 case 1:
@@ -41,7 +42,7 @@ public class Main {
                     dll.print();
                     break;
                 case 3:
-
+                    dll.pop(input);
                     break;
                 case 4:
                     dll.sisaAntrian();
