@@ -4,115 +4,123 @@ public class DoubleLinkedList {
     Node headDokter, headPasien, headTransaksi;
     int sizePasien, sizetransaksi;
 
-    public boolean isEmpty(Node head){
-        return head== null;
+    public boolean isEmpty(Node head) {
+        return head == null;
     }
-    public void addlastPasien(Pasien item){
-        if(isEmpty(headPasien)){
+
+    public void addlastPasien(Pasien item) {
+        if (isEmpty(headPasien)) {
             headPasien = new Node(null, item, null);
-        }else{
-            Node tmp= headPasien;
+        } else {
+            Node tmp = headPasien;
             while (tmp.next != null) {
-                tmp=tmp.next;
+                tmp = tmp.next;
             }
             Node newNode = new Node(tmp, item, null);
-            tmp.next=newNode;
-            newNode.prev=tmp;
+            tmp.next = newNode;
+            newNode.prev = tmp;
         }
         sizePasien++;
     }
-    public void addlastDokter(Dokter item){
-        if(isEmpty(headDokter)){
+
+    public void addlastDokter(Dokter item) {
+        if (isEmpty(headDokter)) {
             headDokter = new Node(null, item, null);
-        }else{
-            Node tmp= headDokter;
+        } else {
+            Node tmp = headDokter;
             while (tmp.next != null) {
-                tmp=tmp.next;
+                tmp = tmp.next;
             }
             Node newNode = new Node(tmp, item, null);
-            tmp.next=newNode;
-            newNode.prev=tmp;
+            tmp.next = newNode;
+            newNode.prev = tmp;
         }
     }
-    public void print(){
-        if(isEmpty(headPasien)){
+
+    public void print() {
+        if (isEmpty(headPasien)) {
             System.out.println(">> Antrian Kosong");
-        }else{
+        } else {
             System.out.printf("%-10s %-8s %-10s\n", "Nama", "NIK", "Keluhan");
-            Node tmp=headPasien;
-            while (tmp !=null) {
+            Node tmp = headPasien;
+            while (tmp != null) {
                 tmp.dataPasien.tampilInformasi();
-                tmp=tmp.next;
+                tmp = tmp.next;
             }
         }
     }
-    public void sisaAntrian(){
-        System.out.println(">> Sisa Antrian: "+sizePasien);
+
+    public void sisaAntrian() {
+        System.out.println(">> Sisa Antrian: " + sizePasien);
     }
 
-    public void pop(Scanner sc){
-        if(isEmpty(headPasien)){
+    public void pop(Scanner sc) {
+        if (isEmpty(headPasien)) {
             System.out.println("Antrian kosong");
-        }else{
-            System.out.println("Pasien "+headPasien.dataPasien.nama+" dipanggil");
+        } else {
+            System.out.println("Pasien " + headPasien.dataPasien.nama + " dipanggil");
             System.out.println("Daftar Dokter jaga: ");
-            System.out.printf("%-10s %-10s\n","kode","Nama");
-            Node tmp=headDokter;
-            while (tmp!=null) {
+            System.out.printf("%-10s %-10s\n", "kode", "Nama");
+            Node tmp = headDokter;
+            while (tmp != null) {
                 tmp.dataDokter.tampilInformasi();
-                tmp=tmp.next;
+                tmp = tmp.next;
             }
             System.out.println("Pilih Dokter: ");
             System.out.print("Input kode dokter: ");
-            String dokter=sc.nextLine();
+            String dokter = sc.nextLine();
             System.out.print("input durasi layanan: ");
-            int durasi=sc.nextInt();
+            int durasi = sc.nextInt();
             addTransaksi(dokter, durasi, headPasien.dataPasien);
-            headPasien=headPasien.next;
-            headDokter.prev=null;
+            headPasien = headPasien.next;
+            headDokter.prev = null;
             sizePasien--;
         }
     }
-    public void addTransaksi(String dokter, int durasi, Pasien pasien){
-        Node tmp=headDokter;
-        Dokter inputdr=null;
-        while (tmp!=null) {
-            if(tmp.dataDokter != null && tmp.dataDokter.idDokter.equalsIgnoreCase(dokter)){
-                inputdr=tmp.dataDokter;
+
+    public void addTransaksi(String dokter, int durasi, Pasien pasien) {
+        Node tmp = headDokter;
+        Dokter inputdr = null;
+        while (tmp != null) {
+            if (tmp.dataDokter != null && tmp.dataDokter.idDokter.equalsIgnoreCase(dokter)) {
+                inputdr = tmp.dataDokter;
                 break;
             }
-            tmp=tmp.next;
+            tmp = tmp.next;
         }
-        TransaksiLayanan item=new TransaksiLayanan(pasien, inputdr , durasi);
-        if(isEmpty(headTransaksi)){
-            headTransaksi= new Node(null, item, null);
-        }else{
-            Node current=headTransaksi;
-            while (current.next!=null) {
-                current=current.next;
+        TransaksiLayanan item = new TransaksiLayanan(pasien, inputdr, durasi);
+        if (isEmpty(headTransaksi)) {
+            headTransaksi = new Node(null, item, null);
+        } else {
+            Node current = headTransaksi;
+            while (current.next != null) {
+                current = current.next;
             }
-            Node newnNode=new Node(tmp, item, null);
-            current.next=newnNode;
-            newnNode.prev=current;
+            Node newnNode = new Node(tmp, item, null);
+            current.next = newnNode;
+            newnNode.prev = current;
         }
     }
-    public void RiwayatTransaksi(){
-        if(isEmpty(headTransaksi)){
+
+    public void RiwayatTransaksi() {
+        if (isEmpty(headTransaksi)) {
             System.out.println(">> Data Riwayat Kosong");
-        }else{
-            System.out.printf("%-10s %-15s %-10s %-10s\n", "Nama", "Nama Dokter", "Durasi","total");
-            Node tmp=headTransaksi;
-            while (tmp !=null) {
+        } else {
+            System.out.printf("%-10s %-15s %-10s %-10s\n", "Nama", "Nama Dokter", "Durasi", "total");
+            Node tmp = headTransaksi;
+            while (tmp != null) {
                 tmp.dataTransaksi.print();
-                tmp=tmp.next;
+                tmp = tmp.next;
             }
         }
     }
+
     public void sorting() {
-        if (isEmpty(headTransaksi) || headTransaksi.next == null){
+        if (isEmpty(headTransaksi) || headTransaksi.next == null) {
             System.out.println("Data kosong");
-        } else if (headTransaksi.next==null) {
-            headTransaksi.dataTransaksi.print();;
+        } else if (headTransaksi.next == null) {
+            headTransaksi.dataTransaksi.print();
+            ;
         } else {
             boolean swap;
             do {
