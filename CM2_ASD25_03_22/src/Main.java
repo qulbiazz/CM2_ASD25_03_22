@@ -15,7 +15,7 @@ public class Main {
         int pilih;
 
         do {
-            System.out.println("SISTEM ANTRIAN KLINIK");
+            System.out.println("\nSISTEM ANTRIAN KLINIK");
             System.out.println("1. Tambah Pasien ke Antrian");
             System.out.println("2. Lihat Antrian");
             System.out.println("3. Layani Pasien");
