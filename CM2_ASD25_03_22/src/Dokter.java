@@ -2,8 +2,8 @@ public class Dokter {
     String idDokter;
     String nama;
 
-    Dokter(String id, String nama) {
-        id = idDokter;
+    Dokter(String idDokter, String nama) {
+        this.idDokter = idDokter;
         this.nama = nama;
     }
 
