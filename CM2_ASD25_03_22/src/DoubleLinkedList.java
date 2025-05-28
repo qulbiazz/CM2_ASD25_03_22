@@ -7,13 +7,13 @@ public class DoubleLinkedList {
     }
     public void addlastPasien(Pasien item){
         if(isEmpty(headPasien)){
-            headPasien = new Node(null, item, null);
+            headPasien = new Node(null, item,null,null, null);
         }else{
             Node tmp= headPasien;
             while (tmp.next != null) {
                 tmp=tmp.next;
             }
-            Node newNode = new Node(tmp, item, null);
+            Node newNode = new Node(tmp, item,, null);
             tmp.next=newNode;
             sizePasien++;
         }
