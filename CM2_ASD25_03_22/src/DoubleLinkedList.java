@@ -56,7 +56,7 @@ public class DoubleLinkedList {
             System.out.println("Daftar Dokter jaga: ");
             System.out.printf("%-10s %-10s\n","kode","Nama");
             Node tmp=headDokter;
-            while (tmp.next!=null) {
+            while (tmp!=null) {
                 tmp.dataDokter.tampilInformasi();
                 tmp=tmp.next;
             }
