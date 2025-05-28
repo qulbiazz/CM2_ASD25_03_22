@@ -4,10 +4,14 @@ public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         DoubleLinkedList dll = new DoubleLinkedList();
-        Dokter dokter1 = new Dokter("dr01", "Wike Ratanca");
-        Dokter dokter2 = new Dokter("dr02", "Santi Runica");
-        Dokter dokter3 = new Dokter("dr03", "Aam Antanica");
-        Dokter dokter4 = new Dokter("dr04", "Slamet Sugito");
+        Dokter[] dr = new Dokter[4];
+        dr[0] = new Dokter("dr01", "Wike Ratanca");
+        dr[1] = new Dokter("dr02", "Santi Runica");
+        dr[2] = new Dokter("dr03", "Aam Antanica");
+        dr[3] = new Dokter("dr04", "Slamet Sugito");
+        for (int i = 0; i < 4; i++) {
+            dll.addlastDokter(dr[i]);
+        }
         int pilih;
 
         do {
@@ -31,14 +35,16 @@ public class Main {
                     System.out.print("Keluhan: ");
                     String keluhan = input.next();
                     Pasien tambah = new Pasien(pasien, nik, keluhan);
-
+                    dll.addlastPasien(tambah);
                     break;
                 case 2:
-
+                    dll.print();
                     break;
                 case 3:
+
                     break;
                 case 4:
+                    dll.sisaAntrian();
                     break;
                 case 5:
                     break;
