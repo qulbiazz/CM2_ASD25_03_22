@@ -5,7 +5,7 @@ public class DoubleLinkedList {
     public boolean isEmpty(Node head){
         return head== null;
     }
-    public void addlast(Pasien item){
+    public void addlastPasien(Pasien item){
         if(isEmpty(headPasien)){
             headPasien = new Node(null, item, null);
         }else{
@@ -18,7 +18,7 @@ public class DoubleLinkedList {
             sizePasien++;
         }
     }
-    public void addlast(Dokter item){
+    public void addlastDokter(Dokter item){
         if(isEmpty(headPasien)){
             headDokter = new Node(null, item, null);
         }else{
