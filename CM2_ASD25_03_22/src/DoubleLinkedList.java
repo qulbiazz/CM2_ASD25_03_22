@@ -15,8 +15,8 @@ public class DoubleLinkedList {
             }
             Node newNode = new Node(tmp, item, null);
             tmp.next=newNode;
-            sizePasien++;
         }
+        sizePasien++;
     }
     public void addlastDokter(Dokter item){
         if(isEmpty(headPasien)){
@@ -34,7 +34,7 @@ public class DoubleLinkedList {
         if(isEmpty(headPasien)){
             System.out.println(">> Antrian Kosong");
         }else{
-            System.out.printf("%-10s %-8s %-10s", "Nama", "NIK", "Keluhan");
+            System.out.printf("%-10s %-8s %-10s\n", "Nama", "NIK", "Keluhan");
             Node tmp=headPasien;
             while (tmp !=null) {
                 tmp.dataPasien.tampilInformasi();
