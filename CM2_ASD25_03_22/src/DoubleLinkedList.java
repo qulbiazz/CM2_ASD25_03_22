@@ -97,7 +97,7 @@ public class DoubleLinkedList {
         }
     }
     public void RiwayatTransaksi(){
-        if(isEmpty(headPasien)){
+        if(isEmpty(headTransaksi)){
             System.out.println(">> Data Riwayat Kosong");
         }else{
             System.out.printf("%-10s %-15s %-10s %-10s\n", "Nama", "Nama Dokter", "Durasi","total");
