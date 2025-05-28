@@ -12,4 +12,7 @@ public class TransaksiLayanan {
     public int biaya(int durasilayanan){
         return 50_000*durasilayanan;
     }
+    public void print(){
+        System.out.printf("-%8s -%15s -%8s -%8d",pasien.nama,dokter.nama,durasilayanan,biaya);;
+    }
 }

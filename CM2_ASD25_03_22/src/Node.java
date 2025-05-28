@@ -1,13 +1,17 @@
 public class Node {
     Node next,prev;
     Dokter dataDokter;
-    Pasien datapPasien;
+    Pasien dataPasien;
     TransaksiLayanan dataTransaksi;
-    Node(){
+    Node(Node prev, Pasien dataPasien,Node next){
+        this.next=next;
+        this.prev=prev;
+        this.dataPasien=dataPasien;
+    }
+    Node(Node prev, Dokter dataDokter,Node next){
         this.next=next;
         this.prev=prev;
         this.dataDokter=dataDokter;
-        this.dataTransaksi=dataTransaksi;
     }
 
 
