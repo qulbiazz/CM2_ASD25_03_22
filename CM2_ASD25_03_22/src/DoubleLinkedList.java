@@ -108,4 +108,27 @@ public class DoubleLinkedList {
             }
         }
     }
+    public void sorting() {
+        if (isEmpty(headTransaksi) || headTransaksi.next == null){
+            System.out.println("Data kosong");
+        } else if (headTransaksi.next==null) {
+            headTransaksi.dataTransaksi.print();;
+        } else {
+            boolean swap;
+            do {
+                swap = false;
+                Node temp = headTransaksi;
+                while (temp.next != null) {
+                    if (temp.dataTransaksi.pasien.nama.compareToIgnoreCase(temp.next.dataTransaksi.pasien.nama) < 0) {
+                        TransaksiLayanan temp2 = temp.dataTransaksi;
+                        temp.dataTransaksi = temp.next.dataTransaksi;
+                        temp.next.dataTransaksi = temp2;
+                        swap = true;
+                    }
+                    temp = temp.next;
+                }
+            } while (swap);
+            RiwayatTransaksi();
+        }
+    }
 }

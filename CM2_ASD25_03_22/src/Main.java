@@ -51,6 +51,7 @@ public class Main {
                     dll.RiwayatTransaksi();
                     break;
                 case 6:
+                    dll.sorting();
                     break;
                 case 0:
                     System.out.println("Keluar");
