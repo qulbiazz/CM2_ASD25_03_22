@@ -10,7 +10,7 @@ public class Pasien {
     }
 
     public void tampilInformasi() {
-        System.out.printf("%-10s %-8s %-10s", "Nama, NIK, Keluhan");
+        System.out.printf("%-10s %-8s %-10s\n", nama, nik, keluhan);
     }
 
 }
