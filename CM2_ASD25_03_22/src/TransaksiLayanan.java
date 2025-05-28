@@ -12,6 +12,6 @@ public class TransaksiLayanan {
         return 50_000*durasilayanan;
     }
     public void print(){
-        System.out.printf("-%8s -%15s -%8s -%8d",pasien.nama,dokter.nama,durasilayanan,biaya);;
+        System.out.printf("-%10s -%15s -%10s -%10d",pasien.nama,dokter.nama,durasilayanan,biaya(durasilayanan));;
     }
 }

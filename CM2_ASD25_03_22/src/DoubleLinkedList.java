@@ -17,6 +17,7 @@ public class DoubleLinkedList {
             }
             Node newNode = new Node(tmp, item, null);
             tmp.next=newNode;
+            newNode.prev=tmp;
         }
         sizePasien++;
     }
@@ -30,6 +31,7 @@ public class DoubleLinkedList {
             }
             Node newNode = new Node(tmp, item, null);
             tmp.next=newNode;
+            newNode.prev=tmp;
         }
     }
     public void print(){
@@ -73,10 +75,11 @@ public class DoubleLinkedList {
     }
     public void addTransaksi(String dokter, int durasi, Pasien pasien){
         Node tmp=headDokter;
-        Dokter inputdr=new Dokter(null, null);
-        while (tmp.next!=null) {
-            if(tmp.dataDokter.idDokter.equalsIgnoreCase(dokter)){
+        Dokter inputdr=null;
+        while (tmp!=null) {
+            if(tmp.dataDokter != null && tmp.dataDokter.idDokter.equalsIgnoreCase(dokter)){
                 inputdr=tmp.dataDokter;
+                break;
             }
             tmp=tmp.next;
         }
@@ -89,8 +92,20 @@ public class DoubleLinkedList {
                 current=current.next;
             }
             Node newnNode=new Node(tmp, item, null);
-            tmp.next=newnNode;
-
+            current.next=newnNode;
+            newnNode.prev=current;
+        }
+    }
+    public void RiwayatTransaksi(){
+        if(isEmpty(headPasien)){
+            System.out.println(">> Data Riwayat Kosong");
+        }else{
+            System.out.printf("%-10s %-15s %-10s %-10s\n", "Nama", "Nama Dokter", "Durasi","total");
+            Node tmp=headTransaksi;
+            while (tmp !=null) {
+                tmp.dataTransaksi.print();
+                tmp=tmp.next;
+            }
         }
     }
 }
