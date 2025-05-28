@@ -48,8 +48,12 @@ public class Main {
                     dll.sisaAntrian();
                     break;
                 case 5:
+                    dll.RiwayatTransaksi();
                     break;
                 case 6:
+                    break;
+                case 0:
+                    System.out.println("Keluar");
                     break;
                 default:
                     System.out.println("Menu tidak valid");
